@@ -15,6 +15,7 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
             path: distPath,
             filename: appJsFilename
         },
+        devtool: 'source-map',
         module: {
             loaders: [
                 {test: /\.js$/, loader: 'babel', include: /\/src\//},
