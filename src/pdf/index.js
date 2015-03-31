@@ -1,4 +1,5 @@
-var angular = require('angular');
+import angular from 'angular';
+import PdfController from './pdf-controller';
 
-module.exports = angular.module('app.pdf', [])
-    .controller('PdfController', require('./pdf-controller'));
+export default angular.module('app.pdf', [])
+    .controller('PdfController', PdfController);

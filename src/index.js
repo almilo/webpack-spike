@@ -1,7 +1,7 @@
-require('./index.css');
-
-var angular = require('angular');
+import './index.css';
+import angular from 'angular';
+import pdfModule from './pdf/index';
 
 angular.module('app', [
-    require('./pdf').name
+    pdfModule.name
 ]);

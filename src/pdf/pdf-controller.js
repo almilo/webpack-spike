@@ -1,14 +1,14 @@
-var loadJsPDF = require('promise?global!jspdf');
+import loadJsPDF from 'promise?global!jspdf';
 
-module.exports = function PdfController($scope) {
-    $scope.generatePdf = function () {
+export default function () {
+    this.generatePdf = () => {
         loadJsPDF().then(createAndDownloadPdf);
+    };
 
-        function createAndDownloadPdf(jsPDF) {
-            var document = new jsPDF();
+    function createAndDownloadPdf(jsPDF) {
+        const document = new jsPDF();
 
-            document.text(20, 20, 'Hello, world!!');
-            document.save('test.pdf');
-        }
+        document.text(20, 20, 'Hello, world!!');
+        document.save('test.pdf');
     }
 };

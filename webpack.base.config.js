@@ -1,16 +1,15 @@
 var webpack = require('webpack'), ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    srcPath = __dirname + '/src/', distPath = __dirname + '/dist/',
-    fontFileLoader = 'file?name=font/[name]-[hash].[ext]';
+    distPath = __dirname + '/dist/', fontFileLoader = 'file?name=font/[name]-[hash].[ext]';
 
 module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
     return {
-        context: srcPath,
+        context: __dirname,
         resolve: {
             modulesDirectories: ['node_modules', 'bower_components']
         },
         entry: {
-            app: './index.js',
-            vendor: ['../vendor/jquery', '../vendor/angular']
+            app: './src/index.js',
+            vendor: ['./vendor/jquery', './vendor/angular']
         },
         output: {
             path: distPath,
@@ -18,6 +17,7 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         },
         module: {
             loaders: [
+                {test: /\.js$/, loader: 'babel', include: /\/src\//},
                 {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
                 {test: /\.woff$/, loader: fontFileLoader},
                 {test: /\.woff2$/, loader: fontFileLoader},
