@@ -1,6 +1,4 @@
-var webpackProduction = require('./webpack.base.config.js')('vendor-[hash].js', 'app-[hash].js', 'app-[hash].css');
-
-webpackProduction.storeStatsTo = 'webpackStatistics';
+var webpackProduction = require('./webpack.prod.config.js');
 
 module.exports = function (grunt) {
 
