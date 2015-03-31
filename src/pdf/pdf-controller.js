@@ -1,6 +1,8 @@
+var loadJsPDF = require('promise?global!jspdf');
+
 module.exports = function PdfController($scope) {
     $scope.generatePdf = function () {
-        require(['jspdf'], createAndDownloadPdf);
+        loadJsPDF().then(createAndDownloadPdf);
 
         function createAndDownloadPdf(jsPDF) {
             var document = new jsPDF();
