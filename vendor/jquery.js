@@ -1,1 +1,1 @@
-module.exports = window.jQuery = DEBUG ? require('jquery/dist/jquery.js') : require('jquery/dist/jquery.min.js');
+module.exports = require('expose?jQuery!jquery/dist/jquery.js');

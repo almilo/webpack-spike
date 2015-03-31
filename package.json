@@ -4,7 +4,7 @@
   "description": "Webpack Spike",
   "main": "index.js",
   "scripts": {
-    "serve": "DEBUG=true node node_modules/.bin/webpack-dev-server --content-base src/",
+    "serve": "node node_modules/.bin/webpack-dev-server --content-base src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alberto Mijares <alberto.mijares@edorasware.com>",
@@ -14,6 +14,7 @@
     "babel-loader": "^4.2.0",
     "css-loader": "^0.9.1",
     "exports-loader": "^0.6.2",
+    "expose-loader": "^0.6.0",
     "extract-text-webpack-plugin": "^0.5.0",
     "file-loader": "^0.8.1",
     "grunt": "^0.4.5",

@@ -28,9 +28,6 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         },
         plugins: [
             new webpack.optimize.CommonsChunkPlugin('vendor', vendorJsFilename),
-            new webpack.DefinePlugin({
-                'DEBUG': process.env.DEBUG === 'true'
-            }),
             new webpack.ResolverPlugin(
                 new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
             ),
