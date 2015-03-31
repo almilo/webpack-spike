@@ -1,7 +1,6 @@
 var webpackProduction = require('./webpack.prod.config.js');
 
 module.exports = function (grunt) {
-
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-webpack');
@@ -13,15 +12,9 @@ module.exports = function (grunt) {
         copy: {
             production: {
                 src: 'src/index.html',
-                dest: 'dist/index.html',
+                dest: webpackProduction.output.path + 'index.html',
                 options: {
-                    process: function (content) {
-                        return content.replace(/(=".*-)(hash)(\..*")/g, replaceWithCompileHash);
-
-                        function replaceWithCompileHash(match, prefix, hash, sufix) {
-                            return prefix + grunt.template.process('<%=' + webpackProduction.storeStatsTo + '.hash%>') + sufix;
-                        }
-                    }
+                    process: hashFilter
                 }
             }
         },
@@ -31,4 +24,13 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['clean:production', 'webpack:production', 'copy:production']);
+
+    function hashFilter(content) {
+        return content.replace(/(=".*-)(hash)(\..*")/g, replaceWithCompileHash);
+
+        function replaceWithCompileHash(match, prefix, hash, sufix) {
+            return prefix + grunt.template.process('<%=' + webpackProduction.storeStatsTo + '.hash%>') + sufix;
+        }
+    }
 };
+
