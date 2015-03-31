@@ -18,7 +18,8 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         module: {
             loaders: [
                 {test: /\.js$/, loader: 'babel', include: /\/src\//},
-                {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
+                {test: /\.css$/, loader: ExtractTextPlugin.extract('css')},
+                {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')},
                 {test: /\.woff$/, loader: fontFileLoader},
                 {test: /\.woff2$/, loader: fontFileLoader},
                 {test: /\.ttf$/, loader: fontFileLoader},
