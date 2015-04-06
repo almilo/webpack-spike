@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "node node_modules/.bin/webpack-dev-server --content-base src/",
     "build": "grunt",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start"
   },
   "author": "Alberto Mijares <alberto.mijares@edorasware.com>",
   "license": "MIT",
@@ -22,6 +22,12 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",
     "grunt-webpack": "^1.0.8",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-babel-preprocessor": "^5.0.1",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "^0.3.5",
+    "karma-webpack": "^1.5.0",
     "node-sass": "^3.0.0-beta.4",
     "promise-loader": "^0.1.3",
     "sass-loader": "^1.0.0",
