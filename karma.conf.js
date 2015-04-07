@@ -12,6 +12,9 @@ module.exports = function (config) {
         },
         webpack: {
             module: webpackConfig.module
+        },
+        webpackMiddleware: {
+            noInfo: true
         }
     });
 };
