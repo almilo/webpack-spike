@@ -1,4 +1,6 @@
 module.exports = function (config) {
+    var webpackConfig = require('./webpack.config.js');
+
     config.set({
         basePath: 'src',
         frameworks: ['jasmine'],
@@ -9,12 +11,7 @@ module.exports = function (config) {
             '**/*.js': ['webpack']
         },
         webpack: {
-            module: {
-                loaders: [
-                    {test: /\.js$/, loader: 'babel', include: /\/src\//}
-                ]
-            },
-
+            module: webpackConfig.module
         }
     });
 };

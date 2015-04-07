@@ -42,7 +42,7 @@
     "jquery": "^2.1.3"
   },
   "browser": {
-    "angular": "./vendor/angular.js",
+    "vendor": "./vendor/index.js",
     "jspdf": "./vendor/jspdf.js"
   }
 }

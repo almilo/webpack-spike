@@ -1,18 +1,16 @@
-var webpack = require('webpack'), ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    distPath = __dirname + '/dist/', fontFileLoader = 'file?name=font/[name]-[hash].[ext]';
+var webpack = require('webpack'), ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
+    var fontFileLoader = 'file?name=font/[name]-[hash].[ext]';
+
     return {
         context: __dirname,
-        resolve: {
-            modulesDirectories: ['node_modules', 'bower_components']
-        },
         entry: {
-            app: './src/index.js',
-            vendor: ['./vendor/jquery', './vendor/angular']
+            vendor: './vendor/index',
+            app: './src/index'
         },
         output: {
-            path: distPath,
+            path: __dirname + '/dist/',
             filename: appJsFilename
         },
         devtool: 'source-map',
@@ -30,9 +28,6 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         },
         plugins: [
             new webpack.optimize.CommonsChunkPlugin('vendor', vendorJsFilename),
-            new webpack.ResolverPlugin(
-                new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
-            ),
             new ExtractTextPlugin(appCssFilename)
         ]
     }

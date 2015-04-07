@@ -1,1 +1,1 @@
-module.exports = require('exports?jsPDF!jspdf/dist/jspdf.debug.js');
+module.exports = require('exports?jsPDF!../bower_components/jspdf/dist/jspdf.debug.js');
