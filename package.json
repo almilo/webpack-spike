@@ -24,7 +24,6 @@
     "grunt-webpack": "^1.0.8",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
-    "karma-babel-preprocessor": "^5.0.1",
     "karma-firefox-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "karma-webpack": "^1.5.0",
@@ -33,8 +32,8 @@
     "sass-loader": "^1.0.0",
     "style-loader": "^0.9.0",
     "url-loader": "^0.5.5",
-    "webpack": "^1.7.3",
-    "webpack-dev-server": "^1.7.0"
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.8.0"
   },
   "dependencies": {
     "angular": "^1.3.15",
