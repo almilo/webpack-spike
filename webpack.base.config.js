@@ -1,4 +1,4 @@
-var webpack = require('webpack'), ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path'), webpack = require('webpack'), ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
     var fontFileLoader = 'file?name=font/[name]-[hash].[ext]';
@@ -16,7 +16,7 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         devtool: 'source-map',
         module: {
             loaders: [
-                {test: /\.js$/, loader: 'babel', include: /\/src\//},
+                {test: /\.js$/, loader: 'babel', include: path.join(__dirname, 'src')},
                 {test: /\.css$/, loader: ExtractTextPlugin.extract('css')},
                 {test: /\.scss$/, loader: ExtractTextPlugin.extract('css!sass')},
                 {test: /\.woff$/, loader: fontFileLoader},
