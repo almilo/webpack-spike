@@ -13,7 +13,6 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
             path: __dirname + '/dist/',
             filename: appJsFilename
         },
-        devtool: 'source-map',
         module: {
             loaders: [
                 {test: /\.js$/, loader: 'babel', include: path.join(__dirname, 'src')},
@@ -28,7 +27,11 @@ module.exports = function (vendorJsFilename, appJsFilename, appCssFilename) {
         },
         plugins: [
             new webpack.optimize.CommonsChunkPlugin('vendor', vendorJsFilename),
-            new ExtractTextPlugin(appCssFilename)
+            new ExtractTextPlugin(appCssFilename),
+            new webpack.SourceMapDevToolPlugin(
+                '[file].map', null,
+                '[absolute-resource-path]', '[absolute-resource-path]'
+            )
         ]
     }
 };
