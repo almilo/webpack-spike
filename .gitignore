@@ -1,4 +1,5 @@
 dist
+dist_prod
 .idea
 node_modules
 bower_components
