@@ -4,5 +4,6 @@ var webpack = require('webpack'),
 
 webpackProduction.storeStatsTo = 'webpackStatistics';
 webpackProduction.plugins.push(new webpack.optimize.UglifyJsPlugin(uglifyJsOptions));
+webpackProduction.output.path = __dirname + '/dist_prod/';
 
 module.exports = webpackProduction;
